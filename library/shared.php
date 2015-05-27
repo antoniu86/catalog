@@ -36,7 +36,8 @@ function unregisterGlobals() {
 
 unregisterGlobals();
 
-function performAction($controller,$action,$queryString = null,$render = 0) {
+
+function performAction($controller, $action, $queryString = null, $render = 0) {
     $controllerName = ucfirst($controller).'Controller';
     $dispatch = new $controllerName($controller,$action);
     $dispatch->render = $render;
