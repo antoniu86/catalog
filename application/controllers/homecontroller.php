@@ -6,4 +6,7 @@ class HomeController extends Controller {
         
     }
     
+    function before() {
+        $this->ajax = 1;
+    }
 }
