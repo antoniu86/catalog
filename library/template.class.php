@@ -34,4 +34,10 @@ class Template {
             }
         }
     }
+    
+    function render_partial($view) {
+        if (file_exists(ROOT . DS . 'application' . DS . 'views' . DS . $this->variables['folder'] . DS . '_' . $view . '.php')) {
+            include(ROOT . DS . 'application' . DS . 'views' . DS . $this->variables['folder'] . DS . '_' . $view . '.php');
+        }
+    }
 }

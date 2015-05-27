@@ -20,6 +20,7 @@ class Controller {
             $this->$model = new $model;
         }
         $this->_template = new Template($controller, $action);
+        $this->_template->set('folder', $controller);
     }
 
     function set($name, $value) {
