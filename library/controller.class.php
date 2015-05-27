@@ -4,7 +4,7 @@ class Controller {
     protected $_controller;
     protected $_action;
     protected $_template;
-    public $doNotRenderHeader;
+    public $ajax;
     public $render;
 
     function __construct($controller, $action) {
@@ -12,7 +12,7 @@ class Controller {
 
         $this->_controller = ucfirst($controller);
         $this->_action = $action;
-        $this->doNotRenderHeader = 0;
+        $this->ajax = 0;
         $this->render = 1;
         
         if (file_exists(ROOT . DS . 'application' . DS . 'models' . DS . strtolower($inflect->singularize($controller)) . '.php')) {
@@ -28,7 +28,7 @@ class Controller {
 
     function __destruct() {
         if ($this->render) {
-            $this->_template->render($this->doNotRenderHeader);
+            $this->_template->render($this->ajax);
         }
     }
 }

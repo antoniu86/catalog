@@ -14,11 +14,11 @@ class Template {
         $this->variables[$name] = $value;
     }
 
-    function render($doNotRenderHeader = 0) {
+    function render($ajax = 0) {
         $html = new HTML;
         extract($this->variables);
 
-        if ($doNotRenderHeader == 0) {
+        if ($ajax == 0) {
             if (file_exists(ROOT . DS . 'application' . DS . 'views' . DS . 'layouts' . DS . 'header.php')) {
                 include (ROOT . DS . 'application' . DS . 'views' . DS . 'layouts' . DS . 'header.php');
             }
@@ -28,7 +28,7 @@ class Template {
             include (ROOT . DS . 'application' . DS . 'views' . DS . $this->_controller . DS . $this->_action . '.php');
         }
 
-        if ($doNotRenderHeader == 0) {
+        if ($ajax == 0) {
             if (file_exists(ROOT . DS . 'application' . DS . 'views' . DS . 'layouts' . DS . 'footer.php')) {
                 include (ROOT . DS . 'application' . DS . 'views' . DS . 'layouts' . DS . 'footer.php');
             }
