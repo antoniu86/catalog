@@ -13,8 +13,16 @@ class Template {
     function set($name, $value) {
         $this->variables[$name] = $value;
     }
+    
+    function get($name) {
+        if (isset($this->variables[$name])) {
+            return $this->variables[$name];
+        } else {
+            return;
+        }
+    }
 
-    function render($ajax = 0) {
+    function render($ajax = 0, $path = NULL) {
         $html = new HTML;
         extract($this->variables);
 
@@ -24,8 +32,14 @@ class Template {
             }
         }
 
-        if (file_exists(ROOT . DS . 'application' . DS . 'views' . DS . $this->_controller . DS . $this->_action . '.php')) {
-            include (ROOT . DS . 'application' . DS . 'views' . DS . $this->_controller . DS . $this->_action . '.php');
+        if ($path) {
+            if (file_exists(ROOT . DS . 'application' . DS . 'views' . DS . $path . '.php')) {
+                include (ROOT . DS . 'application' . DS . 'views' . DS . $path . '.php');
+            }
+        } else {
+            if (file_exists(ROOT . DS . 'application' . DS . 'views' . DS . $this->_controller . DS . $this->_action . '.php')) {
+                include (ROOT . DS . 'application' . DS . 'views' . DS . $this->_controller . DS . $this->_action . '.php');
+            }
         }
 
         if ($ajax == 0) {
@@ -35,7 +49,15 @@ class Template {
         }
     }
     
-    function render_partial($view) {
+    function render_view($view) {
+        $html = new HTML;
+        extract($this->variables);
+        
+        if (file_exists(ROOT . DS . 'application' . DS . 'views' . DS . $view . '.php')) {
+            include(ROOT . DS . 'application' . DS . 'views' . DS . $view . '.php');
+            return;
+        }
+        
         if (file_exists(ROOT . DS . 'application' . DS . 'views' . DS . $this->variables['folder'] . DS . '_' . $view . '.php')) {
             include(ROOT . DS . 'application' . DS . 'views' . DS . $this->variables['folder'] . DS . '_' . $view . '.php');
         }

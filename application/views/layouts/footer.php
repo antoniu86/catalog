@@ -1,3 +1,3 @@
-<?php ?>
-
-<h2>Footer</h2>
+</div>
+</body>
+</html>

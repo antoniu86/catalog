@@ -23,12 +23,12 @@ class HTML {
 	}
 
 	function includeJs($fileName) {
-		$data = '<script src="'.BASE_PATH.'/js/'.$fileName.'.js"></script>';
+		$data = '<script src="/javascripts/'.$fileName.'.js"></script>' . PHP_EOL;
 		return $data;
 	}
 
 	function includeCss($fileName) {
-		$data = '<style href="'.BASE_PATH.'/css/'.$fileName.'.css"></script>';
+		$data = '<link href="/stylesheets/'.$fileName.'.css" rel="stylesheet">' . PHP_EOL;
 		return $data;
 	}
 }

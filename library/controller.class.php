@@ -19,8 +19,10 @@ class Controller {
             $model = ucfirst($inflect->singularize($controller));
             $this->$model = new $model;
         }
+        
         $this->_template = new Template($controller, $action);
-        $this->_template->set('folder', $controller);
+        $this->set('folder', $controller);
+        $this->set('page_title', ucfirst($controller));
     }
 
     function set($name, $value) {

@@ -1,8 +1,5 @@
-<?php ?>
-
-<h1>Index</h1>
-
-
-<?php
-    $this->render_partial('text'); 
-?>
+<?php if ($logged == false): ?>
+    <?php $this->render_view('login_form'); ?>
+<?php else: ?>
+    <?php $this->render_view('text'); ?>
+<?php endif; ?>

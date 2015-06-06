@@ -1,12 +1,9 @@
 <?php
 
-class HomeController extends Controller {
+class HomeController extends ApplicationController {
     
     function index() {
         
     }
     
-    function before() {
-        $this->ajax = 1;
-    }
 }
