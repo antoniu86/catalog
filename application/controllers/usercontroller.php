@@ -36,5 +36,23 @@ class UserController extends ApplicationController {
 
         header('Location: ' . BASE_PATH . '/');
     }
+    
+    function view($id) {
+        
+    }
+    
+    function edit($id) {
+        
+    }
+    
+    function save($id) {
+        foreach ($_REQUEST["user"] as $key => $value):
+            $this->user->$key = $value;
+        endforeach;
+        
+        $this->user->save();
+        
+        header('Location: /user/edit/' . $id);
+    }
 
 }

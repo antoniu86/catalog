@@ -10,4 +10,8 @@ class School extends Model {
         return $this->search();
     }
     
+    function find_all() {
+        return $this->search();
+    }
+    
 }

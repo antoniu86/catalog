@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head>  
-
+    <head>
         <title><?php echo $this->get('page_title'); ?></title>
 
         <?php echo $html->includeJs('jquery'); ?>
