@@ -1,56 +1,43 @@
 <form action="/user/save/<?php echo $user->id; ?>" method="POST">
-    <table>
-        <thead>
-            <tr>
-                <th colspan="2">Informatii</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Nume</td>
-                <td><input type="text" name="user[last_name]" id="user_last_name" value="<?php echo $user->last_name; ?>"></td>
-            </tr>
 
-            <tr>
-                <td>Prenume</td>
-                <td><input type="text" name="user[first_name]" id="user_first_name" value="<?php echo $user->first_name; ?>"></td>
-            </tr>
+    <div class="row">
+        <div class="col-lg-12">
 
-            <tr>
-                <td>CNP</td>
-                <td><input type="text" name="user[cnp]" id="user_cnp" value="<?php echo $user->cnp; ?>"></td>
-            </tr>
+            <fieldset>
+                <legend>Informatii</legend>
 
-            <tr>
-                <td>Data nasterii</td>
-                <td><input type="text" name="user[birthday]" id="user_birthday" value="<?php echo $user->birthday; ?>"></td>
-            </tr>
+                <label for="user_last_name">Nume</label><br>
+                <input type="text" name="user[last_name]" id="user_last_name" value="<?php echo $selected_user->last_name; ?>" class="form-control"><br>
 
-            <tr>
-                <td>Adresa</td>
-                <td><textarea name="user[address]" id="user_address"><?php echo $user->address; ?></textarea></td>
-            </tr>
+                <label for="user_first_name">Prenume</label><br>
+                <input type="text" name="user[first_name]" id="user_first_name" value="<?php echo $selected_user->first_name; ?>" class="form-control"><br>
 
-            <tr>
-                <td>Email</td>
-                <td><input type="email" name="user[email]" id="user_email" value="<?php echo $user->email; ?>"></td>
-            </tr>
+                <label for="user_cnp">CNP</label><br>
+                <input type="text" name="user[cnp]" id="user_cnp" value="<?php echo $selected_user->cnp; ?>" class="form-control"><br>
 
-            <tr>
-                <td>Telefon</td>
-                <td><input type="text" name="user[phone]" id="user_phone" value="<?php echo $user->phone; ?>"></td>
-            </tr>
-            
-            <tr>
-                <td>Parola</td>
-                <td><input type="text" name="user[password]" id="user_password" value="<?php echo $user->password; ?>"></td>
-            </tr>
-            
-            <tr>
-                <td colspan="2">
-                    <button type="submit">Salveaza</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                <label for="user_birthday">Data nasterii</label><br>
+                <input type="text" name="user[birthday]" id="user_birthday" value="<?php echo $selected_user->birthday; ?>" class="form-control"><br>
+
+                <label for="user_address">Adresa</label><br>
+                <textarea name="user[address]" id="user_address" class="form-control"><?php echo $selected_user->address; ?></textarea><br>
+
+                <label for="user_email">Email</label><br>
+                <input type="email" name="user[email]" id="user_email" value="<?php echo $selected_user->email; ?>" class="form-control"><br>
+
+                <label for="user_phone">Phone</label><br>
+                <input type="text" name="user[phone]" id="user_phone" value="<?php echo $selected_user->phone; ?>" class="form-control"><br>
+
+                <label for="user_password">Parola</label><br>
+                <input type="text" name="user[password]" id="user_password" value="<?php echo $selected_user->password; ?>" class="form-control"><br>
+
+            </fieldset>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <button type="submit" class="btn btn-default">Salveaza</button>
+        </div>
+    </div>
 </form>

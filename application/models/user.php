@@ -52,9 +52,10 @@ class User extends Model {
     function check_for_login($username, $password) {
         $this->where('username', $username);
         $user = $this->search();
-        $user = convert_array_to_object("user", $user[0]["User"]);
         
         if (!empty($user)) {
+            $user = convert_array_to_object("user", $user[0]["User"]);
+            
             if ($user->password == $password) {
                 $_SESSION['the_user_id'] = $user->id;
                 
@@ -63,10 +64,10 @@ class User extends Model {
                 
                 return json_encode(['status' => 'ok']);
             } else {
-                return json_encode(['status' => 'bad', 'message' => 'Wrong password!']);
+                return json_encode(['status' => 'bad', 'message' => 'Parola gresita!']);
             }
         } else {
-            return json_encode(['status' => 'bad', 'message' => 'User not found!']);
+            return json_encode(['status' => 'bad', 'message' => 'Utilizatorul nu a fost gasit!']);
         }
     }
     

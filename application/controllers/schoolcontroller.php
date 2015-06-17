@@ -2,6 +2,12 @@
 
 class SchoolController extends ApplicationController {
 
+    function before() {
+        parent::before();
+        
+        $this->redirect_to_home();
+    }
+    
     function new_school() {
         
     }
@@ -25,6 +31,7 @@ class SchoolController extends ApplicationController {
         endforeach;
         
         $user->school_id = $school[0]["School"]["id"];
+        $user->administrator = true;
         $user->created_at = date("Y-m-d H:i:s");
         
         $user->save();

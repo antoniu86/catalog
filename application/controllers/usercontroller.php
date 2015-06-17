@@ -38,11 +38,16 @@ class UserController extends ApplicationController {
     }
     
     function view($id) {
-        
+        $user = new User();
+        $user = $user->find($id);
+        $this->set('selected_user', convert_array_to_object('user', $user[0]['User']));
     }
     
     function edit($id) {
+        $user = new User();
+        $user = $user->find($id);
         
+        $this->set('selected_user', convert_array_to_object('user', $user[0]['User']));
     }
     
     function save($id) {

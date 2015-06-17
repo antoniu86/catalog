@@ -6,8 +6,8 @@ function do_login() {
     
     if (username.val() == '') {
         $.alert({
-           title: 'Alert',
-           content: 'Username field can\'t be empty',
+           title: 'Alerta',
+           content: 'Introduceti numele de utilizator',
         });
         
         return;
@@ -15,8 +15,8 @@ function do_login() {
     
     if (password.val() == '') {
         $.alert({
-           title: 'Alert',
-           content: 'Password field can\'t be empty',
+           title: 'Alerta',
+           content: 'Introduceti parola',
         });
         
         return;
@@ -33,7 +33,7 @@ function do_login() {
                 window.location = '/login/';
             } else {
                 $.alert({
-                    title: 'Alert',
+                    title: 'Alerta',
                     content: data.message,
                     confirm: function() {
                         username.val('');
