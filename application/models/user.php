@@ -2,14 +2,14 @@
 
 class User extends Model {
     
-    var $hasOne = array('School' => 'School');
+    var $hasOne = array('School' => 'School', 'Subject' => 'Subject');
     
     function full_name() {
         return $this->first_name . ' ' . $this->last_name;
     }
     
-    function find($id) {
-        $this->where('id', intval($id));
+    function find($user_id) {
+        $this->where('id', $user_id);
         $this->showHasOne();
         
         return $this->search();
@@ -43,8 +43,8 @@ class User extends Model {
         return $this->student;
     }
     
-    function check_if_exists($id) {
-        $this->where('id', intval($id));
+    function check_if_exists($user_id) {
+        $this->where('id', intval($user_id));
         
         return count($this->search());
     }

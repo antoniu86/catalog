@@ -1,4 +1,4 @@
-<form action="/user/save/<?php echo $user->id; ?>" method="POST">
+<form action="/user/save/<?php echo $selected_user->id; ?>" method="POST">
 
     <div class="row">
         <div class="col-lg-12">
