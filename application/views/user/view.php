@@ -71,6 +71,19 @@
                     <td>Tip cont</td>
                     <td><?php echo $selected_user->account_type(); ?></td>
                 </tr>
+
+                <?php if ($selected_user->teach()): ?>
+                    <?php $subject = convert_array_to_object('subject', $selected_user->get_subject()[0]["Subject"]); ?>
+                
+                    <tr>
+                        <td>Tip cont</td>
+                        <td>
+                            <a href="/subject/view/<?php echo $subject->id; ?>">
+                                <?php echo $subject->name; ?>
+                            </a>
+                        </td>
+                    </tr>
+                <?php endif; ?>
             </tbody>
         </table>
     </div>

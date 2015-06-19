@@ -16,6 +16,138 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `class_students`
+--
+
+DROP TABLE IF EXISTS `class_students`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `class_students` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `class_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `class_students`
+--
+
+LOCK TABLES `class_students` WRITE;
+/*!40000 ALTER TABLE `class_students` DISABLE KEYS */;
+/*!40000 ALTER TABLE `class_students` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `class_teachers`
+--
+
+DROP TABLE IF EXISTS `class_teachers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `class_teachers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `class_id` int(11) NOT NULL,
+  `teacher_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `class_teachers`
+--
+
+LOCK TABLES `class_teachers` WRITE;
+/*!40000 ALTER TABLE `class_teachers` DISABLE KEYS */;
+/*!40000 ALTER TABLE `class_teachers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `classes`
+--
+
+DROP TABLE IF EXISTS `classes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `classes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `year_id` int(11) NOT NULL,
+  `school_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `classes`
+--
+
+LOCK TABLES `classes` WRITE;
+/*!40000 ALTER TABLE `classes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `classes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `grades`
+--
+
+DROP TABLE IF EXISTS `grades`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `grades` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `student_id` int(11) NOT NULL,
+  `teacher_id` int(11) NOT NULL,
+  `subject_id` int(11) NOT NULL,
+  `given_at` datetime NOT NULL,
+  `edited_at` datetime DEFAULT NULL,
+  `edited_by` int(11) DEFAULT NULL,
+  `important` tinyint(1) DEFAULT '0',
+  `percentage` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `grades`
+--
+
+LOCK TABLES `grades` WRITE;
+/*!40000 ALTER TABLE `grades` DISABLE KEYS */;
+/*!40000 ALTER TABLE `grades` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `periods`
+--
+
+DROP TABLE IF EXISTS `periods`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `periods` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `start_at` date NOT NULL,
+  `end_at` date NOT NULL,
+  `school_id` int(11) NOT NULL,
+  `year_id` int(11) NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `periods`
+--
+
+LOCK TABLES `periods` WRITE;
+/*!40000 ALTER TABLE `periods` DISABLE KEYS */;
+INSERT INTO `periods` VALUES (1,'Sem 2','2015-06-03','2015-06-04',16,1,'2015-06-19 23:45:44'),(2,'Sem 1','2015-06-01','2015-06-02',16,1,'2015-06-19 23:47:03');
+/*!40000 ALTER TABLE `periods` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `schools`
 --
 
@@ -96,7 +228,7 @@ CREATE TABLE `users` (
   `phone` varchar(20) DEFAULT NULL,
   `subject_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -105,8 +237,36 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'root','1234','Root','Root','14345533','admin@dfff',1,0,0,0,0,1,'2015-06-02 20:02:02','2015-06-18 22:16:10','adresa 123 45',NULL,NULL,NULL),(13,'admin1','1234','Admin 1','Admin 1','14345533','admin@dfff',0,1,0,0,0,16,'0000-00-00 00:00:00','2015-06-18 22:25:38','adresa 123 45',NULL,NULL,NULL),(14,'admin2','1234','admin 2','admin 2','335435353','admin2@admin',0,1,0,0,0,17,'0000-00-00 00:00:00','0000-00-00 00:00:00',NULL,NULL,NULL,NULL),(15,'admin3','1234','admin 3','admin 3','4564544564','admin3@admin3',0,1,0,0,0,18,'2015-06-15 21:43:48','2015-06-15 21:44:08',NULL,NULL,NULL,NULL),(16,'admin4','1234','admin 4','admin 4','5655757576','admin4@admin4',0,1,0,0,0,19,'2015-06-16 20:47:37','0000-00-00 00:00:00',NULL,NULL,NULL,NULL);
+INSERT INTO `users` VALUES (1,'root','1234','Root','Root','14345533','admin@dfff',1,0,0,0,0,1,'2015-06-02 20:02:02','2015-06-19 22:16:29','adresa 123 45',NULL,NULL,NULL),(13,'admin1','1234','Admin 1','Admin 1','14345533','admin@dfff',0,1,0,0,0,16,'0000-00-00 00:00:00','2015-06-19 22:21:54','adresa 123 45',NULL,NULL,NULL),(14,'admin2','1234','admin 2','admin 2','335435353','admin2@admin',0,1,0,0,0,17,'0000-00-00 00:00:00','0000-00-00 00:00:00',NULL,NULL,NULL,NULL),(15,'admin3','1234','admin 3','admin 3','4564544564','admin3@admin3',0,1,0,0,0,18,'2015-06-15 21:43:48','2015-06-15 21:44:08',NULL,NULL,NULL,NULL),(16,'admin4','1234','admin 4','admin 4','5655757576','admin4@admin4',0,1,0,0,0,19,'2015-06-16 20:47:37','0000-00-00 00:00:00',NULL,NULL,NULL,NULL),(17,'student','1234','student','student','',NULL,0,0,0,0,1,16,'0000-00-00 00:00:00','2015-06-19 21:13:53',NULL,NULL,NULL,NULL),(18,'','','prof','profesor','',NULL,0,0,1,0,0,16,'0000-00-00 00:00:00','0000-00-00 00:00:00',NULL,'2015-06-25',NULL,4),(19,'student1','1234','student 1','student 1','student 1','student1@student1',0,0,0,0,1,16,'2015-06-19 20:32:55','0000-00-00 00:00:00',NULL,NULL,NULL,NULL),(20,'student2','1234','student 2','student 2','student 2','student2@student2',0,0,0,0,1,16,'2015-06-19 20:34:39','0000-00-00 00:00:00',NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `years`
+--
+
+DROP TABLE IF EXISTS `years`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `years` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `school_id` int(11) NOT NULL,
+  `start_at` date NOT NULL,
+  `end_at` date NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `years`
+--
+
+LOCK TABLES `years` WRITE;
+/*!40000 ALTER TABLE `years` DISABLE KEYS */;
+INSERT INTO `years` VALUES (1,'2013 11',16,'2015-06-02','2015-06-03','2015-06-19 23:05:32');
+/*!40000 ALTER TABLE `years` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -118,4 +278,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-06-18 23:17:40
+-- Dump completed on 2015-06-20  0:05:43

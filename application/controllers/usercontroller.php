@@ -65,10 +65,12 @@ class UserController extends ApplicationController {
 
     function create_student(){
         $this->create_user('student');
+        $this->redirect_to_list('student');
     }
     
     function create_teacher(){
         $this->create_user('teacher');
+        $this->redirect_to_list('teacher');
     }
     
     function create_user($type) {

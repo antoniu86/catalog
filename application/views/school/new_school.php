@@ -12,7 +12,7 @@
             <fieldset>
                 <legend>Administrator</legend>
 
-                <?php $this->render_view('new_user'); ?>
+                <?php $this->render_view('user/_new_user'); ?>
             </fieldset>
         </div>
     </div>

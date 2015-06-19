@@ -5,11 +5,13 @@
 
         <?php echo $html->includeJs('jquery'); ?>
         <?php echo $html->includeJs('bootstrap'); ?>
+        <?php echo $html->includeJs('jquery-ui'); ?>
         <?php echo $html->includeJs('jquery-confirm'); ?>
         <?php echo $html->includeJs('custom'); ?>
 
         <?php echo $html->includeCss('bootstrap'); ?>
         <?php echo $html->includeCss('bootstrap-theme'); ?>
+        <?php echo $html->includeCss('jquery-ui'); ?>
         <?php echo $html->includeCss('jquery-confirm'); ?>
         <?php echo $html->includeCss('custom'); ?>
 

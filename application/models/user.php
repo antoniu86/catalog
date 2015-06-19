@@ -15,6 +15,28 @@ class User extends Model {
         return $this->search();
     }
     
+    function get_all_students($school_id) {
+        $this->where('school_id', $school_id);
+        $this->where('student', true);
+        $this->showHasOne();
+        
+        return $this->search();
+    }
+    
+    function get_all_teachers($school_id) {
+        $this->where('school_id', $school_id);
+        $this->where('teacher', true);
+        $this->showHasOne();
+        
+        return $this->search();
+    }
+    
+    function get_subject() {
+        $subject = new Subject();
+        $subject = $subject->find($this->subject_id);
+        return $subject;
+    }
+    
     function account_type() {
         if ($this->sys()) {
             return 'Administrator sistem';
@@ -36,7 +58,7 @@ class User extends Model {
     }
     
     function teach() {
-        return $this->student;
+        return $this->teacher;
     }
     
     function stud() {

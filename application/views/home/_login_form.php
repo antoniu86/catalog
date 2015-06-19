@@ -3,14 +3,14 @@
         <div class="col-md-6 col-md-offset-3">
             <div class="input-group">
                 <span class="input-group-addon" id="login-username">U</span>
-                <input type="text" class="form-control" id="username" placeholder="Username" aria-describedby="login-username">
+                <input type="text" class="form-control" id="username" placeholder="Utilizator" aria-describedby="login-username">
             </div>
             
             <br>
             
             <div class="input-group">
                 <span class="input-group-addon" id="login-password">P</span>
-                <input type="password" class="form-control" id="password" placeholder="Password" aria-describedby="login-password">
+                <input type="password" class="form-control" id="password" placeholder="Parola" aria-describedby="login-password">
             </div>
             
             <br>
