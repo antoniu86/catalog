@@ -51,4 +51,20 @@ $(document).ready(function () {
         dateFormat: "yy-mm-dd"
     });
 
+    $('[data-toggle="tooltip"]').tooltip()
+
+    $('a[href*="delete"]').on('click', function(e) {
+        e.preventDefault();
+        
+        var href = $(this).attr('href');
+        
+        $.confirm({
+            title: 'Confirmare',
+            content: 'Esti sigur ca vrei sa stergi acest element?',
+            confirm: function() {
+                window.location = href;
+            }
+        });
+    });
+
 });

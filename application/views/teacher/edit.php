@@ -1,0 +1,1 @@
+<?php $this->render_view('user/edit'); ?>

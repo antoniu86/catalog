@@ -50,7 +50,7 @@ class SubjectController extends ApplicationController {
         
         $subject->save();
         
-        header('Location: /subject/edit/' . $subject_id);
+        header('Location: /subject/view/' . $subject_id);
     }
     
     function teachers($subject_id) {
@@ -58,6 +58,7 @@ class SubjectController extends ApplicationController {
         $teachers = $subject->find_teachers($subject_id, $this->school->id);
         
         $this->set('teachers', $teachers);
+        $this->set('subject', $subject->find($subject_id));
     }
     
 }

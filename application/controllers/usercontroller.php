@@ -60,7 +60,7 @@ class UserController extends ApplicationController {
         
         $user->save();
         
-        header('Location: /user/edit/' . $user_id);
+        header('Location: /user/view/' . $user_id);
     }
 
     function create_student(){

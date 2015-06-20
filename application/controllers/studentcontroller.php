@@ -1,6 +1,6 @@
 <?php
 
-class StudentController extends ApplicationController {
+class StudentController extends UserController {
     
     function before() {
         parent::before();

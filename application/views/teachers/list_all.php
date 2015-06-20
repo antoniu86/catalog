@@ -1,3 +1,8 @@
+<ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li class="active">Profesori</li>
+</ol>
+
 <div class="row">
     <div class="col-md-12">
 
@@ -23,12 +28,16 @@
                             </a>
                         </td>
                         <td align="center">
-                            <a href="/user/view/<?php echo $value->id; ?>">
+                            <a href="/teacher/view/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Vizualizare">
                                 <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                             </a>
                             &nbsp;&nbsp;
-                            <a href="/user/edit/<?php echo $value->id; ?>">
+                            <a href="/teacher/edit/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Editare">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                            </a>
+                            &nbsp;&nbsp;
+                            <a href="/teacher/delete/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Sterge">
+                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                             </a>
                         </td>
                     </tr>
@@ -42,6 +51,6 @@
 
 <div class="row">
     <div class="col-md-12">
-        <a href="/subject/new_subject" class="btn btn-default">Adauga</a>
+        <a href="/teacher/new_teacher" class="btn btn-default">Adauga</a>
     </div>
 </div>

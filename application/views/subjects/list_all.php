@@ -1,3 +1,8 @@
+<ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li class="active">Materii</li>
+</ol>
+
 <div class="row">
     <div class="col-md-12">
 
@@ -6,7 +11,7 @@
                 <tr>
                     <th>Denumire</th>
                     <th>Descriere</th>
-                    <th style="text-align: center" width="120">Optiuni</th>
+                    <th style="text-align: center" width="150">Optiuni</th>
                 </tr>
             </thead>
             <tbody>
@@ -16,16 +21,20 @@
                         <td><?php echo $value->name; ?></td>
                         <td><?php echo $value->description; ?></td>
                         <td align="center">
-                            <a href="/subject/view/<?php echo $value->id; ?>">
+                            <a href="/subject/view/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Vizualizare">
                                 <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                             </a>
                             &nbsp;&nbsp;
-                            <a href="/subject/edit/<?php echo $value->id; ?>">
+                            <a href="/subject/edit/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Editare">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                             </a>
                             &nbsp;&nbsp;
-                            <a href="/subject/teachers/<?php echo $value->id; ?>">
+                            <a href="/subject/teachers/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Profesori">
                                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            </a>
+                            &nbsp;&nbsp;
+                            <a href="/subject/delete/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Sterge">
+                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                             </a>
                         </td>
                     </tr>

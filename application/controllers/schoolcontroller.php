@@ -63,7 +63,7 @@ class SchoolController extends ApplicationController {
         
         $school->save();
         
-        header('Location: /school/edit/' . $school_id);
+        header('Location: /school/view/' . $school_id);
     }
 
 }

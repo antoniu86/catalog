@@ -1,3 +1,13 @@
+<ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    
+    <?php if ($user->sys()): ?>
+        <li><a href="/schools/list_all">Scoli</a></li>
+    <?php endif; ?>
+        
+    <li class="active"><?php echo $selected_school->name; ?></li>
+</ol>
+
 <?php if ($user->sys() || $user->admin()): ?>
     <div class="row">
         <div class="col-md-12">

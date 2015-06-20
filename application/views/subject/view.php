@@ -1,3 +1,9 @@
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li><a href="/subjects/list_all">Materii</a></li>
+  <li class="active"><?php echo $selected_subject->name; ?></li>
+</ol>
+
 <div class="row">
     <div class="col-md-12">
         <?php if ($user->sys() || $user->admin()): ?>

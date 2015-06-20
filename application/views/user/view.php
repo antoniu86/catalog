@@ -1,3 +1,6 @@
+<?php $this->render_view('breadcrumb_view'); ?>
+<?php $this->render_view('edit_option'); ?>
+
 <div class="row">
     <div class="col-md-12">
         <table class="table table-striped table-bordered table-condensed table-responsive table-hover">

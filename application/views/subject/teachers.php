@@ -1,3 +1,10 @@
+<ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li><a href="/subjects/list_all">Materii</a></li>
+    <li><a href="/subject/view/<?php echo $subject[0]["Subject"]["id"]; ?>"><?php echo $subject[0]["Subject"]["name"]; ?></a></li>
+    <li class="active">Profesori</li>
+</ol>
+
 <div class="row">
     <div class="col-md-12">
         <table class="table table-striped table-bordered table-condensed table-responsive table-hover">
@@ -11,9 +18,13 @@
                 <?php foreach ($teachers as $value): $value = convert_array_to_object('user', $value['User']) ?>
                     <tr>
                         <td><?php echo $value->full_name(); ?></td>
-                        <td width="40" align="center">
-                            <a href="/user/view/<?php echo $value->id; ?>">
+                        <td width="80" align="center">
+                            <a href="/teacher/view/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Vizualizare">
                                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            </a>
+                            &nbsp;&nbsp;
+                            <a href="/subject/delete_teacher/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Sterge">
+                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                             </a>
                         </td>
                     </tr>

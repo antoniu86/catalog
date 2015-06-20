@@ -1,3 +1,8 @@
+<ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li class="active">Ani scolari</li>
+</ol>
+
 <div class="row">
     <div class="col-md-12">
 
@@ -5,7 +10,7 @@
             <thead>
                 <tr>
                     <th>An scolar</th>
-                    <th style="text-align: center" width="120">Optiuni</th>
+                    <th style="text-align: center" width="170">Optiuni</th>
                 </tr>
             </thead>
             <tbody>
@@ -14,16 +19,24 @@
                     <tr>
                         <td><?php echo $value->name; ?></td>
                         <td align="center">
-                            <a href="/year/view/<?php echo $value->id; ?>">
+                            <a href="/year/view/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Vizualizare">
                                 <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                             </a>
                             &nbsp;&nbsp;
-                            <a href="/year/edit/<?php echo $value->id; ?>">
+                            <a href="/year/edit/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Editare">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                             </a>
                             &nbsp;&nbsp;
-                            <a href="/periods/list_all/<?php echo $value->id; ?>">
+                            <a href="/periods/list_all/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Perioade">
                                 <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                            </a>
+                            &nbsp;&nbsp;
+                            <a href="/klasses/list_all/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Clase">
+                                <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+                            </a>
+                            &nbsp;&nbsp;
+                            <a href="/year/delete/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Sterge">
+                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                             </a>
                         </td>
                     </tr>

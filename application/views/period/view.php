@@ -1,3 +1,11 @@
+<ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li><a href="/years/list_all">Ani scolari</a></li>
+    <li><a href="/year/view/<?php echo $year->id; ?>"><?php echo $year->name; ?></a></li>
+    <li><a href="/periods/list_all/<?php echo $year->id; ?>">Perioade</a></li>
+    <li class="active"><?php echo $selected_period->name; ?></li>
+</ol>
+
 <div class="row">
     <div class="col-md-12">
         <?php if ($user->sys() || $user->admin()): ?>
@@ -8,7 +16,6 @@
         <br><br>
     </div>
 </div>
-
 
 <div class="row">
     <div class="col-md-12">

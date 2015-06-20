@@ -1,3 +1,8 @@
+<ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li class="active">Elevi</li>
+</ol>
+
 <div class="row">
     <div class="col-md-12">
 
@@ -16,12 +21,16 @@
                         <td><?php echo $value->last_name; ?></td>
                         <td><?php echo $value->first_name; ?></td>
                         <td align="center">
-                            <a href="/user/view/<?php echo $value->id; ?>">
+                            <a href="/student/view/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Vizualizare">
                                 <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                             </a>
                             &nbsp;&nbsp;
-                            <a href="/user/edit/<?php echo $value->id; ?>">
+                            <a href="/student/edit/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Editare">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                            </a>
+                            &nbsp;&nbsp;
+                            <a href="/student/delete/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Sterge">
+                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                             </a>
                         </td>
                     </tr>

@@ -1,3 +1,9 @@
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li><a href="/years/list_all">Ani scolari</a></li>
+  <li class="active"><?php echo $selected_year->name; ?></li>
+</ol>
+
 <div class="row">
     <div class="col-md-12">
         <?php if ($user->sys() || $user->admin()): ?>
@@ -6,8 +12,12 @@
             </a>
         <?php endif; ?>
 
-        <a href="/year/periods/<?php echo $selected_year->id; ?>" class="btn btn-primary btn-sm">
-            <span class="glyphicon glyphicon-time" aria-hidden="true"></span>&nbsp;&nbsp;Prioade
+        <a href="/periods/list_all/<?php echo $selected_year->id; ?>" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-time" aria-hidden="true"></span>&nbsp;&nbsp;Perioade
+        </a>
+        
+        <a href="/klasses/list_all/<?php echo $selected_year->id; ?>" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-list" aria-hidden="true"></span>&nbsp;&nbsp;Clase
         </a>
         <br><br>
     </div>

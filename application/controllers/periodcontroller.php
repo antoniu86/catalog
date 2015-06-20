@@ -52,7 +52,7 @@ class PeriodController extends ApplicationController {
 
         $period->save();
 
-        header('Location: /period/edit/' . $period_id);
+        header('Location: /period/view/' . $period_id);
     }
 
 }

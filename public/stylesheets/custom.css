@@ -2,6 +2,24 @@ body {
     padding: 30px;
 }
 
+.insight {
+    margin: 20px 0;
+    border-bottom: 1px solid #d6d6d6;
+}
+
+.insight h5 {
+    margin-bottom: 0;
+}
+
+.insight span.label {
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.insight p {
+    display: block;
+}
+
 @media (max-width: 767px) {
     body {
         padding: 5px;

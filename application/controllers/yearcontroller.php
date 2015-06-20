@@ -50,7 +50,7 @@ class YearController extends ApplicationController {
 
         $year->save();
 
-        header('Location: /year/edit/' . $year_id);
+        header('Location: /year/view/' . $year_id);
     }
 
 }

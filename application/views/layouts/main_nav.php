@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default">
     <div class="navbar-header">
-        <a class="navbar-brand" href="/">Catalog</a>
+        <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
     </div>
 
     <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -9,13 +9,16 @@
                 <li><a href="/schools/list_all">Scoli</a></li>
             <?php endif; ?>
 
-            <li><a href="/school/view/<?php echo $school->id; ?>">Scoala</a></li>
-            
+            <?php if (!$user->sys()): ?>
+                <li><a href="/school/view/<?php echo $school->id; ?>">Scoala</a></li>
+            <?php endif; ?>
+
             <?php if ($user->admin()): ?>
                 <li><a href="/subjects/list_all">Materii</a></li>
                 <li><a href="/teachers/list_all">Profesori</a></li>
                 <li><a href="/students/list_all">Elevi</a></li>
                 <li><a href="/years/list_all">Ani scolari</a></li>
+                <li><a href="/insights/list_all">Noutati</a></li>
             <?php endif; ?>
         </ul>
 
