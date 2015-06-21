@@ -55,4 +55,13 @@ class PeriodController extends ApplicationController {
         header('Location: /period/view/' . $period_id);
     }
 
+    function delete($period_id) {
+        $period = new Period();
+        $period = convert_array_to_object('period', $period->find($period_id)[0]['Period']);
+        $year_id = $period->year_id;
+        $period->delete();
+        
+        header('Location: /periods/list_all/' . $year_id);
+    }
+
 }

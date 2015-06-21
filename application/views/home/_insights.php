@@ -8,7 +8,7 @@
 <?php else: ?>
     <?php foreach ($insights as $value): $value = convert_array_to_object('insight', $value['Insight']); ?>
         <div class="insight">
-            <h5><?php echo $value->title; ?></h5>
+            <h5><b><?php echo $value->title; ?></b></h5>
             <span class="label label-success"><?php echo $value->created_at; ?></span>
             <p><?php echo $value->text; ?></p>
         </div>

@@ -53,4 +53,15 @@ class YearController extends ApplicationController {
         header('Location: /year/view/' . $year_id);
     }
 
+    function delete($year_id) {
+        $year = new Year();
+        $year = convert_array_to_object('year', $year->find($year_id)[0]['Year']);
+        
+        $year->custom('delete from klasses where year_id = ' . $year_id);
+        $year->custom('delete from periods where year_id = ' . $year_id);
+        $year->custom('delete from years where id = ' . $year_id);
+        
+        header('Location: /years/list_all');
+    }
+
 }

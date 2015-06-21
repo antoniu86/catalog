@@ -96,6 +96,19 @@ class UserController extends ApplicationController {
         $user->save();
     }
     
+    function delete($user_id) {
+        $user = new User();
+        $user = convert_array_to_object('user', $user->find($user_id)[0]['User']);
+        $type = $user->account_type();
+        $user->delete();
+        
+        if ($type == 'Elev'):
+            header('Location: /students/list_all');
+        elseif ($type == 'Profesor'):
+            header('Location: /teachers/list_all');
+        endif;
+    }
+    
     function redirect_to_list($type) {
         switch ($type):
             case 'student':

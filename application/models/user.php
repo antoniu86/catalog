@@ -45,7 +45,7 @@ class User extends Model {
         } elseif ($this->teach()) {
             return 'Profesor';
         } else {
-            return 'Student';
+            return 'Elev';
         }
     }
     

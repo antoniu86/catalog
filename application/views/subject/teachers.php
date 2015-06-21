@@ -22,10 +22,13 @@
                             <a href="/teacher/view/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Vizualizare">
                                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                             </a>
-                            &nbsp;&nbsp;
-                            <a href="/subject/delete_teacher/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Sterge">
-                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                            </a>
+
+                            <?php if ($user->sys() || $user->admin()): ?>
+                                &nbsp;&nbsp;
+                                <a href="/subject/delete_teacher/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Sterge">
+                                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                </a>
+                            <?php endif; ?>
                         </td>
                     </tr>
                 <?php endforeach; ?>

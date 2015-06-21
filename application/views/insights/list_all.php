@@ -26,14 +26,17 @@
                             <a href="/insight/view/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Vizualizare">
                                 <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                             </a>
-                            &nbsp;&nbsp;
-                            <a href="/insight/edit/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Editare">
-                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                            </a>
-                            &nbsp;&nbsp;
-                            <a href="/insight/delete/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Sterge">
-                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                            </a>
+                            
+                            <?php if ($user->sys() || $user->admin()): ?>
+                                &nbsp;&nbsp;
+                                <a href="/insight/edit/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Editare">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                </a>
+                                &nbsp;&nbsp;
+                                <a href="/insight/delete/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Sterge">
+                                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                </a>
+                            <?php endif; ?>
                         </td>
                     </tr>
                 <?php endforeach; ?>

@@ -19,34 +19,41 @@
 
                 <?php foreach ($schools as $value): $value = convert_array_to_object('school', $value["School"]) ?>
                     <?php $admin = $value->get_admin();
-                    $admin = convert_array_to_object('user', $admin[0]['User']); ?>
+                    $admin = convert_array_to_object('user', $admin[0]['User']);
+                    ?>
                     <tr>
                         <td><?php echo $value->name; ?></td>
                         <td align='center'>
                             <a href="/school/view/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Vizualizare">
                                 <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                             </a>
-                            &nbsp;&nbsp;
-                            <a href="/school/edit/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Editare">
-                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                            </a>
-                            &nbsp;&nbsp;
-                            <a href="/school/delete/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Sterge">
-                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                            </a>
+
+                            <?php if ($user->sys()): ?>
+                                &nbsp;&nbsp;
+                                <a href="/school/edit/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Editare">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                </a>
+                                &nbsp;&nbsp;
+                                <a href="/school/delete/<?php echo $value->id; ?>" data-toggle="tooltip" data-placement="top" title="Sterge">
+                                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                </a>
+                            <?php endif; ?>
                         </td>
                         <td><?php echo $admin->full_name(); ?></td>
                         <td align="center">
                             <a href="/user/view/<?php echo $admin->id; ?>" data-toggle="tooltip" data-placement="top" title="Vizualizare">
                                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                             </a>
-                            &nbsp;&nbsp;
-                            <a href="/user/edit/<?php echo $admin->id; ?>" data-toggle="tooltip" data-placement="top" title="Editare">
-                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                            </a>
+                            
+                            <?php if ($user->sys()): ?>
+                                &nbsp;&nbsp;
+                                <a href="/user/edit/<?php echo $admin->id; ?>" data-toggle="tooltip" data-placement="top" title="Editare">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                </a>
+                            <?php endif; ?>
                         </td>
                     </tr>
-<?php endforeach; ?>
+                <?php endforeach; ?>
 
             </tbody>
         </table>

@@ -49,10 +49,19 @@ class KlassController extends ApplicationController {
         foreach ($_REQUEST["klass"] as $key => $value):
             $klass->$key = $value;
         endforeach;
-        
+
         $klass->save();
 
         header('Location: /klass/view/' . $klass_id);
+    }
+
+    function delete($klass_id) {
+        $klass = new Klass();
+        $klass = convert_array_to_object('klass', $klass->find($klass_id)[0]['Klass']);
+        $year_id = $klass->year_id;
+        $klass->delete();
+        
+        header('Location: /klasses/liast_all/' . $year_id);
     }
 
 }

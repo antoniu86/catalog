@@ -52,5 +52,13 @@ class InsightController extends ApplicationController {
 
         header('Location: /insight/view/' . $insight_id);
     }
+    
+    function delete($insight_id) {
+        $insight = new Insight();
+        $insight = convert_array_to_object('insight', $insight->find($insight_id)[0]['Insight']);
+        $insight->delete();
+        
+        header('Location: /insights/list_all');
+    }
 
 }

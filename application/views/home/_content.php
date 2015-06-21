@@ -4,8 +4,10 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-12">
-        <?php $this->render_view('insights'); ?>
+<?php if (!$user->sys()): ?>
+    <div class="row">
+        <div class="col-md-12">
+            <?php $this->render_view('insights'); ?>
+        </div>
     </div>
-</div>
+<?php endif; ?>

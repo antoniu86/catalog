@@ -61,4 +61,18 @@ class SubjectController extends ApplicationController {
         $this->set('subject', $subject->find($subject_id));
     }
     
+    function delete($subject_id) {
+        $subject = new Subject();
+        $subject = convert_array_to_object('subject', $subject->find($subject_id)[0]['Subject']);
+        
+        $teachers = $subject->find_teachers($subject_id, $this->school->id);
+        
+        if (count($teachers) == 0) {
+            $subject->delete();
+            header('Location: /subjects/list_all');
+        } else {
+            header('Location: /subjects/list_all?error=teachers_in_subject');
+        }
+    }
+    
 }
