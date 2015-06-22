@@ -16,56 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `classstudents`
---
-
-DROP TABLE IF EXISTS `classstudents`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `classstudents` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `klass_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `created_at` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `classstudents`
---
-
-LOCK TABLES `classstudents` WRITE;
-/*!40000 ALTER TABLE `classstudents` DISABLE KEYS */;
-/*!40000 ALTER TABLE `classstudents` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `classteachers`
---
-
-DROP TABLE IF EXISTS `classteachers`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `classteachers` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `klass_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `created_at` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `classteachers`
---
-
-LOCK TABLES `classteachers` WRITE;
-/*!40000 ALTER TABLE `classteachers` DISABLE KEYS */;
-/*!40000 ALTER TABLE `classteachers` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `grades`
 --
 
@@ -109,7 +59,7 @@ CREATE TABLE `insights` (
   `text` mediumtext NOT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -137,7 +87,7 @@ CREATE TABLE `klasses` (
   `user_id` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -146,8 +96,64 @@ CREATE TABLE `klasses` (
 
 LOCK TABLES `klasses` WRITE;
 /*!40000 ALTER TABLE `klasses` DISABLE KEYS */;
-INSERT INTO `klasses` VALUES (4,'A',1,16,18,'2015-06-20 17:08:54'),(5,'B',1,16,21,'2015-06-20 17:16:21'),(6,'X A e',2,20,23,'2015-06-20 17:53:11');
+INSERT INTO `klasses` VALUES (4,'A',1,16,18,'2015-06-20 17:08:54'),(5,'B',1,16,21,'2015-06-20 17:16:21'),(6,'X A e',2,20,25,'2015-06-20 17:53:11'),(7,'rry',2,20,25,'2015-06-22 21:31:31');
 /*!40000 ALTER TABLE `klasses` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `klassstudents`
+--
+
+DROP TABLE IF EXISTS `klassstudents`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `klassstudents` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `klass_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `year_id` int(11) NOT NULL,
+  `school_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `klassstudents`
+--
+
+LOCK TABLES `klassstudents` WRITE;
+/*!40000 ALTER TABLE `klassstudents` DISABLE KEYS */;
+INSERT INTO `klassstudents` VALUES (11,6,27,'0000-00-00 00:00:00',2,20),(12,7,24,'0000-00-00 00:00:00',2,20);
+/*!40000 ALTER TABLE `klassstudents` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `klassteachers`
+--
+
+DROP TABLE IF EXISTS `klassteachers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `klassteachers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `klass_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `year_id` int(11) NOT NULL,
+  `school_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `klassteachers`
+--
+
+LOCK TABLES `klassteachers` WRITE;
+/*!40000 ALTER TABLE `klassteachers` DISABLE KEYS */;
+INSERT INTO `klassteachers` VALUES (4,7,25,'0000-00-00 00:00:00',0,0);
+/*!40000 ALTER TABLE `klassteachers` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -166,7 +172,7 @@ CREATE TABLE `periods` (
   `year_id` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -219,7 +225,7 @@ CREATE TABLE `subjects` (
   `school_id` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -260,7 +266,7 @@ CREATE TABLE `users` (
   `phone` varchar(20) DEFAULT NULL,
   `subject_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -269,7 +275,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'root','1234','Root','Root','14345533','admin@dfff',1,0,0,0,0,1,'2015-06-02 20:02:02','2015-06-21 11:41:42','adresa 123 45',NULL,NULL,NULL),(13,'admin1','1234','Admin 1','Admin 1','14345533','admin@dfff',0,1,0,0,0,16,'0000-00-00 00:00:00','2015-06-21 11:31:34','adresa 123 45',NULL,NULL,NULL),(14,'admin2','1234','admin 2','admin 2','335435353','admin2@admin',0,1,0,0,0,17,'0000-00-00 00:00:00','0000-00-00 00:00:00',NULL,NULL,NULL,NULL),(15,'admin3','1234','admin 3','admin 3','4564544564','admin3@admin3',0,1,0,0,0,18,'2015-06-15 21:43:48','2015-06-15 21:44:08',NULL,NULL,NULL,NULL),(16,'admin4','1234','admin 4','admin 4','5655757576','admin4@admin4',0,1,0,0,0,19,'2015-06-16 20:47:37','0000-00-00 00:00:00',NULL,NULL,NULL,NULL),(17,'student','1234','student','student','',NULL,0,0,0,0,1,16,'0000-00-00 00:00:00','2015-06-19 21:13:53',NULL,NULL,NULL,NULL),(18,'','','prof','profesor','',NULL,0,0,1,0,0,16,'0000-00-00 00:00:00','0000-00-00 00:00:00',NULL,'2015-06-25',NULL,4),(19,'student1','1234','student 1','student 1','student 1','student1@student1',0,0,0,0,1,16,'2015-06-19 20:32:55','0000-00-00 00:00:00',NULL,NULL,NULL,NULL),(20,'student2','1234','student 2','student 2','student 2','student2@student2',0,0,0,0,1,16,'2015-06-19 20:34:39','0000-00-00 00:00:00',NULL,NULL,NULL,NULL),(21,'prof1','1234','prof 1','prof 1','1860210013913','prof1@prof1.ro',0,0,1,0,0,16,'2015-06-20 17:15:52','0000-00-00 00:00:00',NULL,NULL,NULL,5),(22,'nena','1234','nena','nena','1234','nena@nena.ro',0,1,0,0,0,20,'2015-06-20 17:50:07','2015-06-21 23:09:22',NULL,NULL,NULL,NULL),(23,'prof','prof','Pro','prof 1','312132','prof1@prof1.ro',0,0,1,0,0,20,'2015-06-20 17:51:38','2015-06-21 11:07:11','ghhgg','2015-06-10','456456',6),(24,'stud','1234','stud','stud 111','46545645646','stud@stud.stud',0,0,0,0,1,20,'2015-06-21 00:32:15','2015-06-21 11:30:53','ggj','2015-06-16','546',NULL);
+INSERT INTO `users` VALUES (1,'root','1234','Root','Root','14345533','admin@dfff',1,0,0,0,0,1,'2015-06-02 20:02:02','2015-06-21 11:41:42','adresa 123 45',NULL,NULL,NULL),(13,'admin1','1234','Admin 1','Admin 1','14345533','admin@dfff',0,1,0,0,0,16,'0000-00-00 00:00:00','2015-06-21 11:31:34','adresa 123 45',NULL,NULL,NULL),(14,'admin2','1234','admin 2','admin 2','335435353','admin2@admin',0,1,0,0,0,17,'0000-00-00 00:00:00','0000-00-00 00:00:00',NULL,NULL,NULL,NULL),(15,'admin3','1234','admin 3','admin 3','4564544564','admin3@admin3',0,1,0,0,0,18,'2015-06-15 21:43:48','2015-06-15 21:44:08',NULL,NULL,NULL,NULL),(16,'admin4','1234','admin 4','admin 4','5655757576','admin4@admin4',0,1,0,0,0,19,'2015-06-16 20:47:37','0000-00-00 00:00:00',NULL,NULL,NULL,NULL),(17,'student','1234','student','student','',NULL,0,0,0,0,1,16,'0000-00-00 00:00:00','2015-06-19 21:13:53',NULL,NULL,NULL,NULL),(18,'','','prof','profesor','',NULL,0,0,1,0,0,16,'0000-00-00 00:00:00','0000-00-00 00:00:00',NULL,'2015-06-25',NULL,4),(19,'student1','1234','student 1','student 1','student 1','student1@student1',0,0,0,0,1,16,'2015-06-19 20:32:55','0000-00-00 00:00:00',NULL,NULL,NULL,NULL),(20,'student2','1234','student 2','student 2','student 2','student2@student2',0,0,0,0,1,16,'2015-06-19 20:34:39','0000-00-00 00:00:00',NULL,NULL,NULL,NULL),(21,'prof1','1234','prof 1','prof 1','1860210013913','prof1@prof1.ro',0,0,1,0,0,16,'2015-06-20 17:15:52','0000-00-00 00:00:00',NULL,NULL,NULL,5),(22,'nena','1234','nena','nena','1234','nena@nena.ro',0,1,0,0,0,20,'2015-06-20 17:50:07','2015-06-22 21:31:16',NULL,NULL,NULL,NULL),(24,'stud','1234','stud','stud 111','46545645646','stud@stud.stud',0,0,0,0,1,20,'2015-06-21 00:32:15','2015-06-22 21:42:54','ggj','2015-06-16','546',NULL),(25,'prof','1234','prof','prof 1','454546','prof1@prof1.ro',0,0,1,0,0,20,'2015-06-22 20:44:21','2015-06-22 21:42:24','ugjggjhg','2015-06-09','jhgjhg',6),(26,'ss','ss','stud','stud','34543453','ss@ss.ss',0,0,0,0,1,20,'2015-06-22 20:58:20','0000-00-00 00:00:00',NULL,NULL,NULL,NULL),(27,'ss','ss','stud','stud','3553543','ss@ss.ss',0,0,0,0,1,20,'2015-06-22 20:58:38','0000-00-00 00:00:00',NULL,NULL,NULL,NULL),(28,'ss','ss','stud','stud','454546','ss@ss.ss',0,0,0,0,1,20,'2015-06-22 20:58:57','0000-00-00 00:00:00',NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -288,7 +294,7 @@ CREATE TABLE `years` (
   `end_at` date NOT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -310,4 +316,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-06-21 23:11:53
+-- Dump completed on 2015-06-22 21:45:33
