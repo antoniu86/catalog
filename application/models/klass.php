@@ -2,7 +2,7 @@
 
 class Klass extends Model {
 
-    var $hasMany = array('ClassTeacher' => 'ClassTeacher', 'ClassStudent' => 'ClassStudent');
+    var $hasMany = array('KlassTeacher' => 'KlassTeacher', 'KlassStudent' => 'KlassStudent');
     var $hasOne = array('School' => 'School', 'Year' => 'Year', 'User' => 'User');
 
     function find($klass_id) {
@@ -25,7 +25,12 @@ class Klass extends Model {
     function get_main_teacher() {
         $user = new User();
         $user = $user->find($this->user_id);
-        return $user;
+        
+        if (count($user) == 1) :
+            return $user[0]['User'];
+        else:
+            return -1;
+        endif;
     }
 
 }

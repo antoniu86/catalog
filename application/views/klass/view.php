@@ -17,6 +17,14 @@
                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;&nbsp;Modifica
             </a>
         <?php endif; ?>
+                    
+        <a href="/klassstudents/list_all/<?php echo $selected_klass->id; ?>/<?php echo $year_id; ?>" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Elevi
+        </a>
+                    
+        <a href="/klassteachers/list_all/<?php echo $selected_klass->id; ?>/<?php echo $year_id; ?>" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Profesori
+        </a>
         <br><br>
     </div>
 </div>
