@@ -13,14 +13,14 @@
                 <li><a href="/school/view/<?php echo $school->id; ?>">Scoala</a></li>
             <?php endif; ?>
 
-                
+
             <?php if ($user->admin() || $user->teach()): ?>
                 <li><a href="/subjects/list_all">Materii</a></li>
                 <li><a href="/teachers/list_all">Profesori</a></li>
                 <li><a href="/students/list_all">Elevi</a></li>
                 <li><a href="/years/list_all">Ani scolari</a></li>
             <?php endif; ?>
-                
+
             <?php if ($user->admin()): ?>
                 <li><a href="/insights/list_all">Noutati</a></li>
             <?php endif; ?>
@@ -32,8 +32,10 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="caret"></span></a>
 
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="/user/edit/<?php echo $user->id; ?>">Editare cont</a></li>
-                    <li class="divider"></li>
+                    <?php if (!$user->stud()): ?>
+                        <li><a href="/user/edit/<?php echo $user->id; ?>">Editare cont</a></li>
+                        <li class="divider"></li>
+                        <?php endif; ?>
                     <li><a href="/logout">Logout</a></li>
                 </ul>
             </li>
